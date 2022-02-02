@@ -10,8 +10,23 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.jetbrains:annotations:22.0.0'
+    implementation 'org.sakaiproject.user:user:21.1'
+    implementation 'net.guerlab.smart.user:smart-user-service:21.5.0'
+    implementation 'net.guerlab.smart.user:smart-user-internal:21.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'mysql:mysql-connector-java:8.0.25'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'com.codeborne:selenide:6.1.2'
+    implementation 'junit:junit:4.13.2'
+    implementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
+    testImplementation 'com.google.code.gson:gson:2.8.9'
 }
 
 test {
