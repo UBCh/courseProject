@@ -1,12 +1,14 @@
 package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import data.DataHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.Before;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import page.DBPage;
 import page.LoginInvalidPage;
 import page.LoginPage;
 import page.SeleKtorPage;
@@ -15,6 +17,7 @@ import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestService {
@@ -42,7 +45,10 @@ public class TestService {
         SeleKtorPage.getButtonBuy().click();
         SeleKtorPage.getHeadingBuy().shouldBe(visible);
        LoginPage.buyPage();
-      var expected = SeleKtorPage.getoK().shouldBe(visible);
+       var expected = SeleKtorPage.getoK().shouldBe(visible);
+        var expected2=  DBPage.stubTest (DataHelper.getFirstCardInfo());
+        var actual2 = "APPROVED";
+        assertEquals(expected2, actual2);
           }
 
     @Test

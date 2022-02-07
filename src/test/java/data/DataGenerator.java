@@ -1,6 +1,8 @@
 package data;
 import com.github.javafaker.Faker;
 import lombok.Value;
+import page.BDPageFaker;
+import page.DBPage;
 
 import java.time.LocalDate;
 import java.util.Locale;
@@ -13,6 +15,7 @@ public class DataGenerator {
 
     public static String generateNumber() {
         String number = faker.business().creditCardNumber();
+        BDPageFaker.setUp(number);
         return number;
     }
 
