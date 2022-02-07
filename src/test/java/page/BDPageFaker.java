@@ -30,7 +30,7 @@ public class BDPageFaker {
 
 
     @SneakyThrows
-    Object stubTest( String newNumber) {
+    public static Object stubTest(String newNumber) {
         var countSQL = "SELECT COUNT(*) FROM users;";
         var usersSQL = "SELECT * FROM users;";
         var runner = new QueryRunner();

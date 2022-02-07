@@ -8,10 +8,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import page.DBPage;
-import page.LoginInvalidPage;
-import page.LoginPage;
-import page.SeleKtorPage;
+import page.*;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
@@ -87,7 +84,11 @@ public class TestService {
         SeleKtorPage.getButtonBuy().click();
         SeleKtorPage.getHeadingBuy().shouldBe(visible);
         LoginPage.FakerPage();
+        var newNumber = SeleKtorPage.getCardNumber().getText();
+        var expected2 =BDPageFaker.stubTest(newNumber);
         var expected = SeleKtorPage.getError().shouldBe(visible);
+        var actual2 = "DECLINED";
+        assertEquals(expected2, actual2);
     }
 
     @Test
