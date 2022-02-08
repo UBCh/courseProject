@@ -21,4 +21,4 @@ build_script:
 
 services:
     - mysql
-    - postgresql93
+   

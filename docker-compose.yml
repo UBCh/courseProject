@@ -1,16 +1,6 @@
 version: '3.7'
 services:
-  postgres:
-    image: postgres
-    ports:
-      - '5432:5432'
-
-    environment:
-      - POSTGRES_DB=api
-      - POSTGRES_USER=app
-      - POSTGRES_PASSWORD=pass
-
-  mysql:
+   mysql:
     image: mysql:8.0
    ports:
       - '3306:3306'
