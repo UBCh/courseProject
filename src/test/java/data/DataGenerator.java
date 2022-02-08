@@ -1,6 +1,8 @@
 package data;
+
 import com.github.javafaker.Faker;
 import lombok.Value;
+import page.BDPageFaker;
 //import page.BDPageFaker;
 //import page.DBPage;
 
@@ -15,43 +17,46 @@ public class DataGenerator {
 
     public static String generateNumber() {
         String number = faker.business().creditCardNumber();
-       // BDPageFaker.setUp(number);
+        BDPageFaker.setUp(number);
         return number;
     }
 
     // генерируем валидный срок дейстия карты
     public static String generateYearValidYear() {
-      int cYear =LocalDate.now (). getYear ();
-      int i = faker.number().numberBetween(0,4);
-        String year = String.valueOf( cYear -2000 + i);
+        int cYear = LocalDate.now().getYear();
+        int i = faker.number().numberBetween(0, 4);
+        String year = String.valueOf(cYear - 2000 + i);
 
         return year;
     }
+
     //генерируем имя
     public static String generateName() {
         String name = faker.name().lastName();
         return name;
     }
+
     // генерируем CVV
     public static String generateCVV() {
         String cvv = faker.number().digits(3);
         return cvv;
     }
+
     //генерируем месяц
     public static String generateMonth() {
-        String month = String.valueOf(faker.number().numberBetween(10,12));
+        String month = String.valueOf(faker.number().numberBetween(10, 12));
         return month;
     }
 
-   // public static class Registration {
+    // public static class Registration {
 
     // private Registration() {
-      //  }
+    //  }
 
-       // public static UserInfo generateUser() {
+    // public static UserInfo generateUser() {
 
-           // return new UserInfo(generateNumber(), generateName(), generateMonth(), generateCVV(), generateYearValidYear());
-       // }
+    // return new UserInfo(generateNumber(), generateName(), generateMonth(), generateCVV(), generateYearValidYear());
+    // }
 
     //}
 

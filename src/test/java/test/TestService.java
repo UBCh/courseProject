@@ -41,12 +41,12 @@ public class TestService {
         open("http://localhost:8080");
         SeleKtorPage.getButtonBuy().click();
         SeleKtorPage.getHeadingBuy().shouldBe(visible);
-       LoginPage.buyPage();
-       var expected = SeleKtorPage.getoK().shouldBe(visible);
-        //var expected2=  DBPage.stubTest ();
-        //var actual2 = "APPROVED";
-        //assertEquals(expected2, actual2);
-          }
+        LoginPage.buyPage();
+        var expected = SeleKtorPage.getoK().shouldBe(visible);
+        var expected2=  DBPage.stubTest ();
+        var actual2 = "APPROVED";
+        assertEquals(expected2, actual2);
+    }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, отклонена банком.")
@@ -77,6 +77,7 @@ public class TestService {
         LoginPage.BuyPage2();
         var expected = SeleKtorPage.getError().shouldBe(visible);
     }
+
     @Test
     @DisplayName("Покупка тура по дебетовой несуществующей карте, отклонена банком.")
     void shouldPurchaseRejectedFake() {
@@ -87,7 +88,7 @@ public class TestService {
         // var newNumber = SeleKtorPage.getCardNumber().getText();
         //var expected2 =BDPageFaker.stubTest();
         //var expected = SeleKtorPage.getError().shouldBe(visible);
-       //var actual2 = "DECLINED";
+        //var actual2 = "DECLINED";
         //assertEquals(expected2, actual2);
     }
 
@@ -115,6 +116,7 @@ public class TestService {
         var expected5 = SeleKtorPage.getNoteCVV().shouldBe(visible);
 
     }
+
     @Test
     @DisplayName("Покупка тура кредит, отправка пустой формы.")
     void shouldIpotekaZero() {
@@ -149,6 +151,7 @@ public class TestService {
         LoginInvalidPage.InvalidNumber();
         var expected = SeleKtorPage.getNote().shouldBe(texts("Неверный формат"));
     }
+
     @Test
     @DisplayName("Покупка тура по дебетовой карте, не валидный месяц")
     void shouldPurchaseInvalidMonth() {
@@ -209,6 +212,7 @@ public class TestService {
         LoginInvalidPage.InvalidYearAfter();
         var expected = SeleKtorPage.getFormatYear().shouldBe(visible);
     }
+
     @Test
     @DisplayName("Покупка тура по дебетовой карте, ввод неверного формата месяц и год")
     void shouldPurchaseYearMonthIncorrected() {
@@ -216,7 +220,7 @@ public class TestService {
         SeleKtorPage.getButtonBuy().click();
         SeleKtorPage.getHeadingBuy().shouldBe(visible);
         LoginInvalidPage.InvalidData();
-        var expected = SeleKtorPage.getNote().shouldBe(texts("Неверный формат","Неверный формат"));
+        var expected = SeleKtorPage.getNote().shouldBe(texts("Неверный формат", "Неверный формат"));
     }
 
 
@@ -227,7 +231,7 @@ public class TestService {
         SeleKtorPage.getButtonLoan().click();
         SeleKtorPage.getHeadingIpoteka().shouldBe(visible);
         LoginInvalidPage.InvalidData();
-        var expected = SeleKtorPage.getNote().shouldBe(texts("Неверный формат","Неверный формат"));
+        var expected = SeleKtorPage.getNote().shouldBe(texts("Неверный формат", "Неверный формат"));
     }
 
 

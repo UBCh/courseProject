@@ -1,6 +1,7 @@
 
 package page;
 
+import data.DataHelper;
 import data.DataModel;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
@@ -11,25 +12,25 @@ import java.sql.DriverManager;
 
 public class BDPageFaker {
 
-    private BDPageFaker(){}
+    private BDPageFaker() {
+    }
+
     @BeforeEach
     @SneakyThrows
     public static void setUp(String number) {
         var runner = new QueryRunner();
-        // var dataSQL = "INSERT INTO users(login, password) VALUES (?, ?);";
-        var dataSQL = "INSERT INTO users(numberCard , status) VALUES (?, ?);";
+        // var dataSQL = "INSERT INTO credit_request_entity (login, password) VALUES (?, ?);";
+        var dataSQL = "INSERT INTO credit_request_entity(numberCard , status) VALUES (?, ?);";
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/b'app'?serverTimezone=UTC", "newuser", "pass"
                 );
 
         ) {
-            // обычная вставка
-            // runner.update(conn, dataSQL, faker.name().username(), "pass");
-           runner.update(conn, dataSQL, number, "DECLINED");
+
+            runner.update(conn, dataSQL, number, "DECLINED");
         }
     }
-
 
 
     @SneakyThrows
@@ -49,7 +50,7 @@ public class BDPageFaker {
             return status;
         }
     }
-    }
+}
 
 
 
