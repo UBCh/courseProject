@@ -39,7 +39,6 @@ dependencies {
     testImplementation 'com.google.code.gson:gson:2.8.9'
     testImplementation 'io.qameta.allure:allure-selenide:2.17.2'
 }
-
 test {
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     useJUnitPlatform()

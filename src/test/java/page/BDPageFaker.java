@@ -1,7 +1,10 @@
+/*
 package page;
 
+import data.DataModel;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.sql.DriverManager;
@@ -30,9 +33,9 @@ public class BDPageFaker {
 
 
     @SneakyThrows
-    public static Object stubTest(String newNumber) {
-        var countSQL = "SELECT COUNT(*) FROM users;";
-        var usersSQL = "SELECT * FROM users;";
+    public static String stubTest() {
+        var countSQL = "SELECT COUNT(*) FROM payment_entity;";
+        var usersSQL = "SELECT * FROM payment_entity;";
         var runner = new QueryRunner();
 
         try (
@@ -40,12 +43,15 @@ public class BDPageFaker {
                         "jdbc:mysql://localhost:3306/b'app'?serverTimezone=UTC", "newuser", "pass"
                 );
         ) {
-            var first = runner.query(conn,  usersSQL, newNumber, "Status");
+            var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
             // System.out.println(first);
-            return first;
+            var status = first.getStatus();
+            return status;
         }
+    }
     }
 
 
 
-}
+
+*/
