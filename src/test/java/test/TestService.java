@@ -43,9 +43,9 @@ public class TestService {
         SeleKtorPage.getHeadingBuy().shouldBe(visible);
        LoginPage.buyPage();
        var expected = SeleKtorPage.getoK().shouldBe(visible);
-        //var expected2=  DBPage.stubTest ();
-        //var actual2 = "APPROVED";
-        //assertEquals(expected2, actual2);
+        var expected2=  DBPage.stubTest ();
+        var actual2 = "APPROVED";
+        assertEquals(expected2, actual2);
           }
 
     @Test

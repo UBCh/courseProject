@@ -1,4 +1,4 @@
-/*
+
 package page;
 
 import data.DataHelper;
@@ -43,8 +43,8 @@ public class DBPage {
 
     @SneakyThrows
     public static String stubTest() {
-        var countSQL = "SELECT COUNT(*) FROM payment_entity;";
-        var usersSQL = "SELECT * FROM payment_entity;";
+        var countSQL = "SELECT COUNT(*) FROM credit_request_entity";
+        var usersSQL = "SELECT * FROM credit_request_entity;";
         var runner = new QueryRunner();
 
         try (
@@ -60,4 +60,4 @@ public class DBPage {
     }
 
 }
-*/
+
