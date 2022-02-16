@@ -22,11 +22,8 @@ repositories {
     mavenCentral()
 }
 
-npmContainerizedTask {
-    sourcesDir = '\\courseProject\\gate-simulator'
-    outputLevel = 'INFO' // ALL, DEBUG
-    scriptBody = 'npm install\\app.js'
-}
+
+
 dependencies {
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'org.jetbrains:annotations:22.0.0'
