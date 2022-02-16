@@ -1,21 +1,15 @@
-package page;
+package data;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.selector.ByText;
-import data.DataHelper;
-import lombok.Value;
-import lombok.val;
-import org.openqa.selenium.By;
 
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class SeleKtorPage {
-     private SeleKtorPage() {}
+public class DataSeleKtor {
+     private DataSeleKtor() {}
 
     // поля
     private static ElementsCollection pole = $$(".input__control");
@@ -44,8 +38,8 @@ public class SeleKtorPage {
     public static SelenideElement getCvv() {
         return cvv;
     }
-// кнопки
 
+    // кнопки
     private static ElementsCollection button = $$(".button__text");
     private static SelenideElement buttonBuy = button.get(0);
     private static SelenideElement buttonLoan = button.get(1);
@@ -107,9 +101,7 @@ public class SeleKtorPage {
 
 
     // подстрочники (неверно указан срок действия карты)
-   // private static ElementsCollection format =$$(".input__sub");
-    //private static SelenideElement formatYear = format.get(1);
-   // private static SelenideElement formatManth = format.get(0);
+
     private static SelenideElement formatYear =  $(byText("Неверно указан срок действия карты"));
     private static SelenideElement formatManth =  $(byText("Неверно указан срок действия карты"));
     private static SelenideElement formatYearBefore =  $(byText("Истёк срок действия карты"));

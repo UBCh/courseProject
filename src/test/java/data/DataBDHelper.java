@@ -1,9 +1,6 @@
 
-package page;
+package data;
 
-import data.DataHelper;
-
-import data.DataModel;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -12,18 +9,16 @@ import org.junit.jupiter.api.BeforeEach;
 import java.sql.DriverManager;
 
 
-public class DBPage {
+public class DataBDHelper {
 
-    private DBPage() {
+    private DataBDHelper() {
     }
 
 
     @BeforeEach
     @SneakyThrows
-    void setUp() {
-        // var faker = new Faker();
+    void setUp () {
         var runner = new QueryRunner();
-        // var dataSQL = "INSERT INTO users(login, password) VALUES (?, ?);";
         var dataSQL = "INSERT INTO payment_entity(numberCard , status) VALUES (?, ?);";
         try (
                 var conn = DriverManager.getConnection(
@@ -33,7 +28,8 @@ public class DBPage {
         ) {
 
             runner.update(conn, dataSQL, DataHelper.getFirstCardInfo(), "APPROVED");
-            runner.update(conn, dataSQL, DataHelper.getSecondCardInfo(), "DECLINED"); //runner.update(conn, dataSQL, DataGenerator.generateNumber(), "DECLINED");
+            runner.update(conn, dataSQL, DataHelper.getSecondCardInfo(), "DECLINED");
+
         }
     }
 

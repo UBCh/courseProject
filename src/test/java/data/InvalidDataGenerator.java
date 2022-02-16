@@ -5,10 +5,9 @@ import lombok.Value;
 
 import java.time.LocalDate;
 import java.util.Locale;
-import java.util.Date;
 
-public class DataInvalidGenerator {
-    private DataInvalidGenerator() {
+public class InvalidDataGenerator {
+    private InvalidDataGenerator() {
     }
 
     private static Faker faker = new Faker(new Locale("ru"));
