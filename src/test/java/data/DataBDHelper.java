@@ -22,7 +22,7 @@ public class DataBDHelper {
         var dataSQL = "INSERT INTO payment_entity(numberCard , status) VALUES (?, ?);";
         try (
                 var conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/b'app'?serverTimezone=UTC", "newuser", "pass"
+                        "jdbc:mysql://185.119.57.9:3306/app", "user", "pass"
                 );
 
         ) {

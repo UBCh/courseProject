@@ -31,7 +31,7 @@ public class TestPurchaseService {
 
     @Before
     public void openPage(){
-        open("http://localhost:8080");
+        open("http://185.119.57.9:8080");
        LoginPage.buyPage();
         DataSeleKtor.getHeadingBuy().shouldBe(visible);
     }
@@ -40,10 +40,7 @@ public class TestPurchaseService {
     @Test
     @DisplayName("Покупка тура по дебетовой карте, одобрена банком.")
     void shouldPurchaseApproved() {
-        open("http://localhost:8080");
-        LoginPage.buyPage();
-        DataSeleKtor.getHeadingBuy().shouldBe(visible);
-       PurchasePage.buyPageFirst();
+        PurchasePage.buyPageFirst();
         DataSeleKtor.getoK().shouldBe(visible);
         var expected=  DataBDHelper.stubTest ();
         var actual = "APPROVED";

@@ -31,7 +31,7 @@ public class TestCreditService {
 
     @Before
     public void openPage(){
-        open("http://localhost:8080");
+        open("http://185.119.57.9:8080");
         LoginPage.buyLoan();
         DataSeleKtor.getHeadingIpoteka().shouldBe(visible);}
 
@@ -39,9 +39,7 @@ public class TestCreditService {
     @Test
     @DisplayName("Покупка тура в кредит, одобрена банком.")
     void shouldIpotekaApproved() {
-        open("http://localhost:8080");
-        LoginPage.buyLoan();
-        DataSeleKtor.getHeadingIpoteka().shouldBe(visible);PurchasePage.buyPageFirst();
+
         DataSeleKtor.getoK().shouldBe(visible);
         var expected=  DataBDHelper.stubTest ();
         var actual = "APPROVED";
