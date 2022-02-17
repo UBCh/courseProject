@@ -39,7 +39,7 @@ public class TestCreditService {
     @Test
     @DisplayName("Покупка тура в кредит, одобрена банком.")
     void shouldIpotekaApproved() {
-
+        PurchasePage.buyPageFirst();
         DataSeleKtor.getoK().shouldBe(visible);
         var expected=  DataBDHelper.stubTest ();
         var actual = "APPROVED";
