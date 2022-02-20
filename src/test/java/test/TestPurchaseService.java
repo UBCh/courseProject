@@ -27,9 +27,9 @@ public class TestPurchaseService {
     }
 
     @BeforeEach
-    public void openPage(){
+    public void openPage() {
         open("http://localhost:8080");
-       LoginPage.buyPage();
+        LoginPage.buyPage();
         DataSeleKtor.getHeadingBuy().shouldBe(visible);
     }
 
@@ -39,7 +39,7 @@ public class TestPurchaseService {
     void shouldPurchaseApproved() {
         PurchasePage.buyPageFirst();
         DataSeleKtor.getoK().shouldBe(visible);
-        var expected=  DataBDHelper.stubTest ();
+        var expected = DataBDHelper.stubTest();
         var actual = "APPROVED";
         assertEquals(expected, actual);
     }
@@ -49,7 +49,7 @@ public class TestPurchaseService {
     void shouldPurchaseRejected() {
         PurchasePage.BuyPageSecond();
         DataSeleKtor.getError().shouldBe(visible);
-        var expected=  DataBDHelper.stubTest ();
+        var expected = DataBDHelper.stubTest();
         var actual = "DECLINED";
         assertEquals(expected, actual);
     }
@@ -57,9 +57,9 @@ public class TestPurchaseService {
     @Test
     @DisplayName("Покупка тура по дебетовой несуществующей карте, отклонена банком.")
     void shouldPurchaseRejectedFake() {
-      PurchasePage.FakerPage();
-      DataSeleKtor.getError().shouldBe(visible);
-        var expected=  DataBDHelper.stubTest ();
+        PurchasePage.FakerPage();
+        DataSeleKtor.getError().shouldBe(visible);
+        var expected = DataBDHelper.stubTest();
         var actual = "DECLINED";
         assertEquals(expected, actual);
     }
@@ -67,10 +67,10 @@ public class TestPurchaseService {
     @Test
     @DisplayName("Покупка тура по дебетовой  карте, отправка пустой формы.")
     void shouldPurchaseZero() {
-       PurchasePage.InvalidPageZero();
-         DataSeleKtor.getNoteCardNumber().shouldBe(visible);
+        PurchasePage.InvalidPageZero();
+        DataSeleKtor.getNoteCardNumber().shouldBe(visible);
         DataSeleKtor.getNoteManth().shouldBe(visible);
-         DataSeleKtor.getNoteYear().shouldBe(visible);
+        DataSeleKtor.getNoteYear().shouldBe(visible);
         DataSeleKtor.getNoteOwner().shouldBe(visible);
         DataSeleKtor.getNoteCVV().shouldBe(visible);
 
@@ -80,7 +80,7 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой карте, не валидный номер")
     void shouldPurchaseInvalidNumber() {
         PurchasePage.InvalidNumber();
-      DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
+        DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
 
     }
 
@@ -103,9 +103,8 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой карте, неправильный  год")
     void shouldPurchaseInvalidYearIncorrected() {
         PurchasePage.InvalidYearAfter();
-       DataSeleKtor.getFormatYear().shouldBe(visible);
+        DataSeleKtor.getFormatYear().shouldBe(visible);
     }
-
 
 
     @Test
@@ -119,14 +118,14 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой карте, некорректное имя ")
     void shouldPurchaseInvalidNaimIncorrected() {
         PurchasePage.InvalidName();
-       DataSeleKtor.getNote().shouldBe(texts("Поле обязательно для заполнения"));
+        DataSeleKtor.getNote().shouldBe(texts("Поле обязательно для заполнения"));
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректный CVV ")
     void shouldPurchaseInvalidCVVIncorrected() {
-       PurchasePage.InvalidCVV();
-      DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
+        PurchasePage.InvalidCVV();
+        DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
     }
 
 

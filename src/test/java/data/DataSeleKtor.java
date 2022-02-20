@@ -9,12 +9,13 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DataSeleKtor {
-     private DataSeleKtor() {}
+    private DataSeleKtor() {
+    }
 
     // поля
     private static ElementsCollection pole = $$(".input__control");
-   private static SelenideElement cardNumber = pole.get(0);
-    private static SelenideElement month =pole.get(1);
+    private static SelenideElement cardNumber = pole.get(0);
+    private static SelenideElement month = pole.get(1);
     private static SelenideElement year = pole.get(2);
     private static SelenideElement owner = pole.get(3);
     private static SelenideElement cvv = pole.get(4);
@@ -58,7 +59,7 @@ public class DataSeleKtor {
     }
 
     // статусы
-    private static SelenideElement error= $ (".notification_status_error");
+    private static SelenideElement error = $(".notification_status_error");
     private static SelenideElement oK = $(".notification_status_ok");
 
     public static SelenideElement getError() {
@@ -70,14 +71,16 @@ public class DataSeleKtor {
     }
 
     // подстрочники
-    private static ElementsCollection note =$$(".input__sub");
+    private static ElementsCollection note = $$(".input__sub");
     private static SelenideElement noteCardNumber = note.get(3);
     private static SelenideElement noteManth = note.get(0);
     private static SelenideElement noteYear = note.get(1);
     private static SelenideElement noteOwner = note.get(3);
-    private static SelenideElement noteCVV =   note.get(4);
+    private static SelenideElement noteCVV = note.get(4);
 
-    public static ElementsCollection getNote() {return note;}
+    public static ElementsCollection getNote() {
+        return note;
+    }
 
     public static SelenideElement getNoteCardNumber() {
         return noteCardNumber;
@@ -102,28 +105,31 @@ public class DataSeleKtor {
 
     // подстрочники (неверно указан срок действия карты)
 
-    private static SelenideElement formatYear =  $(byText("Неверно указан срок действия карты"));
-    private static SelenideElement formatManth =  $(byText("Неверно указан срок действия карты"));
-    private static SelenideElement formatYearBefore =  $(byText("Истёк срок действия карты"));
-    public static SelenideElement getFormatManth () {
-        return formatManth ;
+    private static SelenideElement formatYear = $(byText("Неверно указан срок действия карты"));
+    private static SelenideElement formatManth = $(byText("Неверно указан срок действия карты"));
+    private static SelenideElement formatYearBefore = $(byText("Истёк срок действия карты"));
+
+    public static SelenideElement getFormatManth() {
+        return formatManth;
     }
+
     public static SelenideElement getFormatYear() {
         return formatYear;
     }
+
     public static SelenideElement getFormatYearBefore() {
         return formatYearBefore;
     }
 
 
-
     // заголовки
-    private static SelenideElement headingCard =$(byText("Оплата по карте"));
-    private static SelenideElement headingIpoteka =$(byText("Кредит по данным карты"));
+    private static SelenideElement headingCard = $(byText("Оплата по карте"));
+    private static SelenideElement headingIpoteka = $(byText("Кредит по данным карты"));
 
     public static SelenideElement getHeadingBuy() {
         return headingCard;
     }
+
     public static SelenideElement getHeadingIpoteka() {
         return headingIpoteka;
     }

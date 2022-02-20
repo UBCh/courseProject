@@ -1,14 +1,21 @@
 package page;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 import data.DataSeleKtor;
 import data.InvalidDataGenerator;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+
 public class PurchasePage {
 
-     private PurchasePage() {}
+    private PurchasePage() {
+    }
+
     private static SelenideElement cardNumber = DataSeleKtor.getCardNumber();
     private static SelenideElement month = DataSeleKtor.getMonth();
     private static SelenideElement year = DataSeleKtor.getYear();
@@ -19,35 +26,36 @@ public class PurchasePage {
 
     public static void buyPageFirst() {
         cardNumber.setValue(String.valueOf(DataHelper.getFirstCardInfo()));
-              month.setValue(DataHelper.generateMonth());
-              year.setValue(DataHelper.generateYearValidYear());
-              owner.setValue(DataHelper.generateName());
-            cvv.setValue(DataHelper.generateCVV());
-             buttonContinue.click();
-        // DataSeleKtor.getHeadingIpoteka().shouldBe(visible, Duration.ofSeconds(10));
-        Selenide.sleep(15000);
+        month.setValue(DataHelper.generateMonth());
+        year.setValue(DataHelper.generateYearValidYear());
+        owner.setValue(DataHelper.generateName());
+        cvv.setValue(DataHelper.generateCVV());
+        buttonContinue.click();
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+
+
     }
 
-      public static void BuyPageSecond() {
+    public static void BuyPageSecond() {
         cardNumber.setValue(String.valueOf(DataHelper.getSecondCardInfo()));
         month.setValue(DataHelper.generateMonth());
         year.setValue(DataHelper.generateYearValidYear());
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
-       public static void FakerPage () {
+    public static void FakerPage() {
         cardNumber.setValue(DataHelper.generateNumber());
         month.setValue(DataHelper.generateMonth());
         year.setValue(DataHelper.generateYearValidYear());
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
-           }
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+    }
 
     public static void InvalidNumber() {
         cardNumber.setValue(InvalidDataGenerator.generateNumber());
@@ -56,76 +64,76 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
-    public static  void InvalidMonth () {
+    public static void InvalidMonth() {
         cardNumber.setValue(DataHelper.generateNumber());
         month.setValue(InvalidDataGenerator.generateMonth());
         year.setValue(DataHelper.generateYearValidYear());
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
-    public static   void InvalidYearBefore ( ) {
+    public static void InvalidYearBefore() {
         cardNumber.setValue(DataHelper.generateNumber());
         month.setValue(DataHelper.generateMonth());
         year.setValue(InvalidDataGenerator.generateYearBefore());
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
 
-    public static  void InvalidYearAfter ( ) {
+    public static void InvalidYearAfter() {
         cardNumber.setValue(DataHelper.generateNumber());
         month.setValue(DataHelper.generateMonth());
         year.setValue(InvalidDataGenerator.generateYearAfter());
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
 
-    public static  void InvalidName () {
+    public static void InvalidName() {
         cardNumber.setValue(DataHelper.generateNumber());
         month.setValue(DataHelper.generateMonth());
         year.setValue(DataHelper.generateYearValidYear());
         owner.setValue(InvalidDataGenerator.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
 
-    public static void InvalidCVV () {
+    public static void InvalidCVV() {
         cardNumber.setValue(DataHelper.generateNumber());
         month.setValue(DataHelper.generateMonth());
         year.setValue(DataHelper.generateYearValidYear());
         owner.setValue(DataHelper.generateName());
         cvv.setValue(InvalidDataGenerator.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
 
-    public static void InvalidPageZero () {
+    public static void InvalidPageZero() {
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 
-   // ввод месяца и года не правильный формат ввода
+    // ввод месяца и года не правильный формат ввода
 
     public static void InvalidData() {
         cardNumber.setValue(DataHelper.generateNumber());
@@ -134,7 +142,7 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        Selenide.sleep(7000);
+        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
 
     }
 

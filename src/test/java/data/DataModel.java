@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 public class DataModel {
 
-    private int  bank_id;
+    private int bank_id;
     private String created;
     private String status;
 
