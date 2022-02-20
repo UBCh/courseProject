@@ -4,12 +4,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DataBDHelper;
 import data.DataSeleKtor;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.Before;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import page.*;
+import org.junit.jupiter.api.*;
+import page.LoginPage;
+import page.PurchasePage;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
@@ -29,9 +26,9 @@ public class TestPurchaseService {
         SelenideLogger.removeListener("allure");
     }
 
-    @Before
+    @BeforeEach
     public void openPage(){
-        open("http://185.119.57.9:8080");
+        open("http://localhost:8080");
        LoginPage.buyPage();
         DataSeleKtor.getHeadingBuy().shouldBe(visible);
     }
