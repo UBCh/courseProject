@@ -6,12 +6,6 @@ import data.DataHelper;
 import data.DataSeleKtor;
 import data.InvalidDataGenerator;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-
 public class PurchasePage {
 
      private PurchasePage() {}
@@ -30,8 +24,8 @@ public class PurchasePage {
               owner.setValue(DataHelper.generateName());
             cvv.setValue(DataHelper.generateCVV());
              buttonContinue.click();
-        $(byText("запрос")).shouldBe(visible, Duration.ofSeconds(10));
-
+        // DataSeleKtor.getHeadingIpoteka().shouldBe(visible, Duration.ofSeconds(10));
+        Selenide.sleep(15000);
     }
 
       public static void BuyPageSecond() {
