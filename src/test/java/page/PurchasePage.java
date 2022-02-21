@@ -1,15 +1,10 @@
 package page;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 import data.DataSeleKtor;
 import data.InvalidDataGenerator;
-
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
 
 public class PurchasePage {
 
@@ -31,7 +26,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
 
     }
@@ -43,7 +39,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -54,7 +51,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
     }
 
     public static void InvalidNumber() {
@@ -64,7 +62,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -75,7 +74,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -86,7 +86,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -98,7 +99,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -110,7 +112,8 @@ public class PurchasePage {
         owner.setValue(InvalidDataGenerator.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -122,14 +125,15 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(InvalidDataGenerator.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
-
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
     }
 
 
     public static void InvalidPageZero() {
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
@@ -142,7 +146,8 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(20000));
+        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
+        Selenide.sleep(20000);
 
     }
 
