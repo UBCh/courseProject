@@ -35,9 +35,9 @@ public class TestCreditService {
     void shouldIpotekaApproved() {
         PurchasePage.buyPageFirst();
         DataSeleKtor.getoK().shouldBe(visible);
-        //var expected=  DataBDHelper.stubTest ();
-        //var actual = "APPROVED";
-        //assertEquals(expected, actual);
+        var expected=  DataBDHelper.stubTest ();
+        var actual = "APPROVED";
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -45,9 +45,9 @@ public class TestCreditService {
     void shouldIpotekaRejected() {
         PurchasePage.BuyPageSecond();
         DataSeleKtor.getError().shouldBe(visible);
-        // var expected=  DataBDHelper.stubTest ();
-        //var actual = "DECLINED";
-        // assertEquals(expected, actual);
+        var expected=  DataBDHelper.stubTest ();
+        var actual = "DECLINED";
+        assertEquals(expected, actual);
     }
 
 
@@ -56,9 +56,9 @@ public class TestCreditService {
     void shouldIpotekaRejectedFake() {
         PurchasePage.FakerPage();
         DataSeleKtor.getError().shouldBe(visible);
-        //var expected=  DataBDHelper.stubTest ();
-        // var actual = "DECLINED";
-        // assertEquals(expected, actual);
+        var expected=  DataBDHelper.stubTest ();
+        var actual = "DECLINED";
+        assertEquals(expected, actual);
     }
 
 

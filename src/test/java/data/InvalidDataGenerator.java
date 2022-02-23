@@ -61,20 +61,7 @@ public class InvalidDataGenerator {
         String yearIC = String.valueOf(faker.number().numberBetween(0, 9));
         return yearIC;
     }
-    // public static class RegistrationInvalid {
 
-    //  private RegistrationInvalid() {
-    //  }
-
-    //  public static DataInvalidGenerator.UserInvalid generateInvalid() {
-
-    //  return new DataInvalidGenerator.UserInvalid (generateNumber(), generateName(), generateMonth(), generateCVV(), generateYearBefore(), generateYearAfter());
-    //   }
-
-    // }
-
-    //@Data
-    //@RequiredArgsConstructor
     @Value
     public static class UserInvalid {
         String number;
