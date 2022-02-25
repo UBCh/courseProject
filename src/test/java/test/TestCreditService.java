@@ -1,6 +1,7 @@
 package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import data.DataBDHelper;
 import data.DataSeleKtor;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
@@ -10,6 +11,7 @@ import page.PurchasePage;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCreditService {
 
