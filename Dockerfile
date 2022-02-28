@@ -1,5 +1,5 @@
 FROM node:8.16.2-alpine
-WORKDIR /courseProject/gate-simulator
+WORKDIR gate-simulator/
 COPY . .
 RUN npm install
 CMD ["npm", "start"]
