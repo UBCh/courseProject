@@ -8,7 +8,6 @@ import org.junit.jupiter.api.*;
 import page.LoginPage;
 import page.PurchasePage;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +35,7 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит, одобрена банком.")
     void shouldIpotekaApproved() {
         PurchasePage.buyPageFirst();
-        DataSeleKtor.getoK().shouldBe(visible);
+        PurchasePage.getOk();
         var expected=  DataBDHelper.stubTest ();
         var actual = "APPROVED";
         assertEquals(expected, actual);
@@ -46,7 +45,7 @@ public class TestCreditService {
     @DisplayName("Покупка тура  кредит, отклонена банком.")
     void shouldIpotekaRejected() {
         PurchasePage.BuyPageSecond();
-        DataSeleKtor.getError().shouldBe(visible);
+      PurchasePage.getError();
         var expected=  DataBDHelper.stubTest ();
         var actual = "DECLINED";
         assertEquals(expected, actual);
@@ -57,7 +56,7 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит по несуществующей карте, отклонена банком.")
     void shouldIpotekaRejectedFake() {
         PurchasePage.FakerPage();
-        DataSeleKtor.getError().shouldBe(visible);
+       PurchasePage.getError();
         var expected=  DataBDHelper.stubTest ();
         var actual = "DECLINED";
         assertEquals(expected, actual);
@@ -68,18 +67,14 @@ public class TestCreditService {
     @DisplayName("Покупка тура кредит, отправка пустой формы.")
     void shouldIpotekaZero() {
         PurchasePage.InvalidPageZero();
-        DataSeleKtor.getNoteCardNumber().shouldBe(visible);
-        DataSeleKtor.getNoteManth().shouldBe(visible);
-        DataSeleKtor.getNoteYear().shouldBe(visible);
-        DataSeleKtor.getNoteOwner().shouldBe(visible);
-        DataSeleKtor.getNoteCVV().shouldBe(visible);
+        PurchasePage.getNote();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит, не валидный номер")
     void shouldIpotekaInvalidNumber() {
         PurchasePage.InvalidNumber();
-        DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
+       PurchasePage.getNoteNumber();
 
     }
 
@@ -88,28 +83,28 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит, не валидный месяц")
     void shouldIpotekaInvalidMonth() {
         PurchasePage.InvalidMonth();
-        DataSeleKtor.getFormatManth().shouldBe(visible);
+       PurchasePage.getNoteManth();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит, истек год")
     void shouldIpotekaInvalidYearExpired() {
         PurchasePage.InvalidYearBefore();
-        DataSeleKtor.getFormatYearBefore().shouldBe(visible);
+       PurchasePage.getNoteFormatYearBefore();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит, неправильный  год")
     void shouldIpotekaInvalidYearInCorrect() {
         PurchasePage.InvalidYearAfter();
-        DataSeleKtor.getFormatYear().shouldBe(visible);
+       PurchasePage.getNoteFormatYearBefore();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит,  ввод неверного формата месяц и год")
     void shouldIpotekaYearMonthIncorrected() {
         PurchasePage.InvalidData();
-        DataSeleKtor.getNote().shouldBe(texts("Неверный формат", "Неверный формат"));
+       PurchasePage.getNoteInvalidData();
     }
 
 
@@ -117,14 +112,14 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит, некорректное имя")
     void shouldIpotekaInvalidNaimInCorrect() {
         PurchasePage.InvalidName();
-        DataSeleKtor.getNote().shouldBe(texts("Поле обязательно для заполнения"));
+        PurchasePage.getNoteInvalidName();
     }
 
      @Test
     @DisplayName("Покупка тура в кредит, некорректный CVV")
     void shouldIpotekaInvalidCVVInCorrect() {
          PurchasePage.InvalidCVV();
-         DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
+        PurchasePage.getNoteInvalidCVV();
     }
 
 

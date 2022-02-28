@@ -8,7 +8,6 @@ import org.junit.jupiter.api.*;
 import page.LoginPage;
 import page.PurchasePage;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,7 +37,7 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой карте, одобрена банком.")
     void shouldPurchaseApproved() {
         PurchasePage.buyPageFirst();
-        DataSeleKtor.getoK().shouldBe(visible);
+        PurchasePage.getOk();
        var expected = DataBDHelper.stubTest();
         var actual = "APPROVED";
          assertEquals(expected, actual);
@@ -48,7 +47,7 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой карте, отклонена банком.")
     void shouldPurchaseRejected() {
         PurchasePage.BuyPageSecond();
-        DataSeleKtor.getError().shouldBe(visible);
+        PurchasePage.getError();
         var expected = DataBDHelper.stubTest();
         var actual = "DECLINED";
         assertEquals(expected, actual);
@@ -58,7 +57,7 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой несуществующей карте, отклонена банком.")
     void shouldPurchaseRejectedFake() {
         PurchasePage.FakerPage();
-        DataSeleKtor.getError().shouldBe(visible);
+        PurchasePage.getError();
         var expected = DataBDHelper.stubTest();
         var actual = "DECLINED";
         assertEquals(expected, actual);
@@ -68,65 +67,59 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой  карте, отправка пустой формы.")
     void shouldPurchaseZero() {
         PurchasePage.InvalidPageZero();
-        DataSeleKtor.getNoteCardNumber().shouldBe(visible);
-        DataSeleKtor.getNoteManth().shouldBe(visible);
-        DataSeleKtor.getNoteYear().shouldBe(visible);
-        DataSeleKtor.getNoteOwner().shouldBe(visible);
-        DataSeleKtor.getNoteCVV().shouldBe(visible);
-
+        PurchasePage.getNote();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, не валидный номер")
     void shouldPurchaseInvalidNumber() {
         PurchasePage.InvalidNumber();
-        DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
-
+       PurchasePage.getNoteNumber();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, не валидный месяц")
     void shouldPurchaseInvalidMonth() {
         PurchasePage.InvalidMonth();
-        DataSeleKtor.getFormatManth().shouldBe(visible);
+       PurchasePage.getNoteManth();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, истек год")
     void shouldPurchaseInvalidYearExpired() {
         PurchasePage.InvalidYearBefore();
-        DataSeleKtor.getFormatYearBefore().shouldBe(visible);
-    }
+        PurchasePage.getNoteFormatYearBefore();
+           }
 
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, неправильный  год")
     void shouldPurchaseInvalidYearIncorrected() {
         PurchasePage.InvalidYearAfter();
-        DataSeleKtor.getFormatYear().shouldBe(visible);
-    }
+        PurchasePage.getNoteFormatYearAfter();
+          }
 
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, ввод неверного формата месяц и год")
     void shouldPurchaseYearMonthIncorrected() {
         PurchasePage.InvalidData();
-        DataSeleKtor.getNote().shouldBe(texts("Неверный формат", "Неверный формат"));
-    }
+        PurchasePage.getNoteInvalidData();
+            }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректное имя ")
     void shouldPurchaseInvalidNaimIncorrected() {
         PurchasePage.InvalidName();
-        DataSeleKtor.getNote().shouldBe(texts("Поле обязательно для заполнения"));
-    }
+        PurchasePage.getNoteInvalidName();
+           }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректный CVV ")
     void shouldPurchaseInvalidCVVIncorrected() {
         PurchasePage.InvalidCVV();
-        DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
-    }
+        PurchasePage.getNoteInvalidCVV();
+           }
 
 
 }

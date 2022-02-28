@@ -6,6 +6,9 @@ import data.DataHelper;
 import data.DataSeleKtor;
 import data.InvalidDataGenerator;
 
+import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.Condition.visible;
+
 public class PurchasePage {
 
     private PurchasePage() {
@@ -151,4 +154,47 @@ public class PurchasePage {
 
     }
 
-}
+    public static void getOk(){
+        DataSeleKtor.getoK().shouldBe(visible);
+    }
+
+    public static void getError(){
+        DataSeleKtor.getError().shouldBe(visible);
+    }
+
+    public static void getNote (){
+    DataSeleKtor.getNoteCardNumber().shouldBe(visible);
+        DataSeleKtor.getNoteManth().shouldBe(visible);
+        DataSeleKtor.getNoteYear().shouldBe(visible);
+        DataSeleKtor.getNoteOwner().shouldBe(visible);
+        DataSeleKtor.getNoteCVV().shouldBe(visible);}
+
+    public static void getNoteNumber(){
+        DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
+    }
+
+    public static void getNoteManth(){
+        DataSeleKtor.getFormatManth().shouldBe(visible);
+    }
+
+    public  static void getNoteFormatYearBefore(){
+        DataSeleKtor.getFormatYearBefore().shouldBe(visible);
+    }
+
+     public static void  getNoteFormatYearAfter(){
+         DataSeleKtor.getFormatYear().shouldBe(visible);
+     }
+
+    public static void getNoteInvalidData(){
+        DataSeleKtor.getNote().shouldBe(texts("Неверный формат", "Неверный формат"));
+    }
+         public static void getNoteInvalidName(){
+             DataSeleKtor.getNote().shouldBe(texts("Поле обязательно для заполнения"));
+         }
+
+          public static void getNoteInvalidCVV(){
+              DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
+          }
+
+    }
+
