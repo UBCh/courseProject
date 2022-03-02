@@ -32,6 +32,22 @@ public class DataBDHelper {
             return status;
         }
     }
+    @SneakyThrows
+    public static String stubTestPurshase() {
+        var countSQL = "SELECT COUNT(*) FROM payment_entity";
+        var usersSQL = "SELECT * FROM payment_entity;";
+        var runner = new QueryRunner();
+
+        try (
+                var conn = DriverManager.getConnection(
+                        "jdbc:mysql://185.119.57.9:3306/app", "app", "pass"
+                );
+        ) {
+            var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
+            var status = first.getStatus();
+            return status;
+        }
+    }
 
 }
 

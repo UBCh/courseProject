@@ -38,18 +38,18 @@ public class TestPurchaseService {
     void shouldPurchaseApproved() {
         PurchasePage.buyPageFirst();
         PurchasePage.getOk();
-       var expected = DataBDHelper.stubTest();
+       var expected = DataBDHelper.stubTestPurshase();
         var actual = "APPROVED";
          assertEquals(expected, actual);
     }
 
     @Test
-    @DisplayName("Покупка тура по дебетовой карте, отклонена банком.")
+    @DisplayName("Покупка тура по дебетовой карте №2, одобрена банком.")
     void shouldPurchaseRejected() {
         PurchasePage.BuyPageSecond();
-        PurchasePage.getError();
-        var expected = DataBDHelper.stubTest();
-        var actual = "DECLINED";
+        PurchasePage.getOk();
+        var expected = DataBDHelper.stubTestPurshase();
+        var actual = "APPROVED";
         assertEquals(expected, actual);
     }
 
@@ -58,9 +58,9 @@ public class TestPurchaseService {
     void shouldPurchaseRejectedFake() {
         PurchasePage.FakerPage();
         PurchasePage.getError();
-        var expected = DataBDHelper.stubTest();
-        var actual = "DECLINED";
-        assertEquals(expected, actual);
+       // var expected = DataBDHelper.stubTest();
+       // var actual = "DECLINED";
+       // assertEquals(expected, actual);
     }
 
     @Test
