@@ -29,7 +29,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
 
@@ -54,7 +53,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
     }
 
@@ -65,7 +63,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -77,7 +74,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -89,7 +85,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -102,7 +97,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -115,7 +109,6 @@ public class PurchasePage {
         owner.setValue(InvalidDataGenerator.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -128,14 +121,12 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(InvalidDataGenerator.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
     }
 
 
     public static void InvalidPageZero() {
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -149,7 +140,6 @@ public class PurchasePage {
         owner.setValue(DataHelper.generateName());
         cvv.setValue(DataHelper.generateCVV());
         buttonContinue.click();
-        // $(byText("Путешествие дня")).shouldBe(visible, Duration.ofMillis(30000));
         Selenide.sleep(20000);
 
     }
@@ -183,6 +173,7 @@ public class PurchasePage {
     }
 
     public static void getNoteFormatYearAfter() {
+
         DataSeleKtor.getFormatYear().shouldBe(visible);
     }
 
@@ -195,6 +186,7 @@ public class PurchasePage {
     }
 
     public static void getNoteInvalidCVV() {
+
         DataSeleKtor.getNote().shouldBe(texts("Неверный формат"));
     }
 

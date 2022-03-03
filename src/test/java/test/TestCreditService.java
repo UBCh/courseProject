@@ -25,10 +25,11 @@ public class TestCreditService {
     }
 
     @BeforeEach
-    public void openPage(){
+    public void openPage() {
         open("http://localhost:8080");
         LoginPage.buyLoan();
-        DataSeleKtor.getHeadingIpoteka().shouldBe(visible);}
+        DataSeleKtor.getHeadingIpoteka().shouldBe(visible);
+    }
 
 
     @Test
@@ -36,7 +37,7 @@ public class TestCreditService {
     void shouldIpotekaApproved() {
         PurchasePage.buyPageFirst();
         PurchasePage.getOk();
-        var expected=  DataBDHelper.stubTest ();
+        var expected = DataBDHelper.stubTest();
         var actual = "APPROVED";
         assertEquals(expected, actual);
     }
@@ -45,8 +46,8 @@ public class TestCreditService {
     @DisplayName("Покупка тура  кредит карта №2, отклонена банком.")
     void shouldIpotekaRejected() {
         PurchasePage.BuyPageSecond();
-      PurchasePage.getError();
-        var expected=  DataBDHelper.stubTest ();
+        PurchasePage.getError();
+        var expected = DataBDHelper.stubTest();
         var actual = "DECLINED";
         assertEquals(expected, actual);
     }
@@ -56,10 +57,8 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит по несуществующей карте, отклонена банком.")
     void shouldIpotekaRejectedFake() {
         PurchasePage.FakerPage();
-       PurchasePage.getError();
-       // var expected=  DataBDHelper.stubTest ();
-        //var actual = "DECLINED";
-        //assertEquals(expected, actual);
+        PurchasePage.getError();
+
     }
 
 
@@ -74,7 +73,7 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит, не валидный номер")
     void shouldIpotekaInvalidNumber() {
         PurchasePage.InvalidNumber();
-       PurchasePage.getNoteNumber();
+        PurchasePage.getNoteNumber();
 
     }
 
@@ -83,28 +82,28 @@ public class TestCreditService {
     @DisplayName("Покупка тура в кредит, не валидный месяц")
     void shouldIpotekaInvalidMonth() {
         PurchasePage.InvalidMonth();
-       PurchasePage.getNoteManth();
+        PurchasePage.getNoteManth();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит, истек год")
     void shouldIpotekaInvalidYearExpired() {
         PurchasePage.InvalidYearBefore();
-       PurchasePage.getNoteFormatYearBefore();
+        PurchasePage.getNoteFormatYearBefore();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит, неправильный  год")
     void shouldIpotekaInvalidYearInCorrect() {
         PurchasePage.InvalidYearAfter();
-       PurchasePage.getNoteFormatYearAfter();
+        PurchasePage.getNoteFormatYearAfter();
     }
 
     @Test
     @DisplayName("Покупка тура в кредит,  ввод неверного формата месяц и год")
     void shouldIpotekaYearMonthIncorrected() {
         PurchasePage.InvalidData();
-       PurchasePage.getNoteInvalidData();
+        PurchasePage.getNoteInvalidData();
     }
 
 
@@ -115,13 +114,12 @@ public class TestCreditService {
         PurchasePage.getNoteInvalidName();
     }
 
-     @Test
+    @Test
     @DisplayName("Покупка тура в кредит, некорректный CVV")
     void shouldIpotekaInvalidCVVInCorrect() {
-         PurchasePage.InvalidCVV();
+        PurchasePage.InvalidCVV();
         PurchasePage.getNoteInvalidCVV();
     }
-
 
 
 }

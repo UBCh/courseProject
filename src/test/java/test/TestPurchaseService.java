@@ -38,18 +38,18 @@ public class TestPurchaseService {
     void shouldPurchaseApproved() {
         PurchasePage.buyPageFirst();
         PurchasePage.getOk();
-       var expected = DataBDHelper.stubTestPurshase();
+        var expected = DataBDHelper.stubTestPurshase();
         var actual = "APPROVED";
-         assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    @DisplayName("Покупка тура по дебетовой карте №2, одобрена банком.")
+    @DisplayName("Покупка тура по дебетовой карте №2, отклонена банком.")
     void shouldPurchaseRejected() {
         PurchasePage.BuyPageSecond();
-        PurchasePage.getOk();
+        PurchasePage.getError();
         var expected = DataBDHelper.stubTestPurshase();
-        var actual = "APPROVED";
+        var actual = "DECLINED";
         assertEquals(expected, actual);
     }
 
@@ -58,9 +58,7 @@ public class TestPurchaseService {
     void shouldPurchaseRejectedFake() {
         PurchasePage.FakerPage();
         PurchasePage.getError();
-       // var expected = DataBDHelper.stubTest();
-       // var actual = "DECLINED";
-       // assertEquals(expected, actual);
+
     }
 
     @Test
@@ -74,14 +72,14 @@ public class TestPurchaseService {
     @DisplayName("Покупка тура по дебетовой карте, не валидный номер")
     void shouldPurchaseInvalidNumber() {
         PurchasePage.InvalidNumber();
-       PurchasePage.getNoteNumber();
+        PurchasePage.getNoteNumber();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, не валидный месяц")
     void shouldPurchaseInvalidMonth() {
         PurchasePage.InvalidMonth();
-       PurchasePage.getNoteManth();
+        PurchasePage.getNoteManth();
     }
 
     @Test
@@ -89,7 +87,7 @@ public class TestPurchaseService {
     void shouldPurchaseInvalidYearExpired() {
         PurchasePage.InvalidYearBefore();
         PurchasePage.getNoteFormatYearBefore();
-           }
+    }
 
 
     @Test
@@ -97,7 +95,7 @@ public class TestPurchaseService {
     void shouldPurchaseInvalidYearIncorrected() {
         PurchasePage.InvalidYearAfter();
         PurchasePage.getNoteFormatYearAfter();
-          }
+    }
 
 
     @Test
@@ -105,21 +103,21 @@ public class TestPurchaseService {
     void shouldPurchaseYearMonthIncorrected() {
         PurchasePage.InvalidData();
         PurchasePage.getNoteInvalidData();
-            }
+    }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректное имя ")
     void shouldPurchaseInvalidNaimIncorrected() {
         PurchasePage.InvalidName();
         PurchasePage.getNoteInvalidName();
-           }
+    }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректный CVV ")
     void shouldPurchaseInvalidCVVIncorrected() {
         PurchasePage.InvalidCVV();
         PurchasePage.getNoteInvalidCVV();
-           }
+    }
 
 
 }

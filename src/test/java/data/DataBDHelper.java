@@ -14,8 +14,6 @@ public class DataBDHelper {
     }
 
 
-
-
     @SneakyThrows
     public static String stubTest() {
         var countSQL = "SELECT COUNT(*) FROM credit_request_entity";
@@ -32,6 +30,7 @@ public class DataBDHelper {
             return status;
         }
     }
+
     @SneakyThrows
     public static String stubTestPurshase() {
         var countSQL = "SELECT COUNT(*) FROM payment_entity";
