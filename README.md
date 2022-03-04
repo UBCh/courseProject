@@ -26,3 +26,4 @@
 * выполнить команду java -jar aqa-shop.jar в терминале IntelliJ IDEA
 * командой RUN запустить TestPurchaseService.java
 * командой RUN запустить TestCreditService.java
+[![Build status](https://ci.appveyor.com/api/projects/status/pg1j3uk0o1xqphlt?svg=true)](https://ci.appveyor.com/project/UBCh/courseproject)
