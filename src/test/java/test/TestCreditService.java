@@ -37,8 +37,8 @@ public class TestCreditService {
     void shouldIpotekaApproved() {
         PurchasePage.buyPageFirst();
         PurchasePage.getOk();
-        var expected = DataBDHelper.stubTest();
-        var actual = "APPROVED";
+        var expected ="APPROVED" ;
+        var actual = DataBDHelper.stubTest();
         assertEquals(expected, actual);
     }
 
@@ -47,8 +47,8 @@ public class TestCreditService {
     void shouldIpotekaRejected() {
         PurchasePage.BuyPageSecond();
         PurchasePage.getError();
-        var expected = DataBDHelper.stubTest();
-        var actual = "DECLINED";
+        var expected = "DECLINED";
+        var actual = DataBDHelper.stubTest();
         assertEquals(expected, actual);
     }
 

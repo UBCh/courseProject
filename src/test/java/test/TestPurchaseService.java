@@ -38,8 +38,8 @@ public class TestPurchaseService {
     void shouldPurchaseApproved() {
         PurchasePage.buyPageFirst();
         PurchasePage.getOk();
-        var expected = DataBDHelper.stubTestPurshase();
-        var actual = "APPROVED";
+        var expected = "APPROVED";
+        var actual = DataBDHelper.stubTestPurshase();
         assertEquals(expected, actual);
     }
 
@@ -48,8 +48,8 @@ public class TestPurchaseService {
     void shouldPurchaseRejected() {
         PurchasePage.BuyPageSecond();
         PurchasePage.getError();
-        var expected = DataBDHelper.stubTestPurshase();
-        var actual = "DECLINED";
+        var expected = "DECLINED";
+        var actual = DataBDHelper.stubTestPurshase();
         assertEquals(expected, actual);
     }
 
