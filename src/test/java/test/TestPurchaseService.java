@@ -2,13 +2,14 @@ package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DataBDHelper;
-import data.DataSeleKtor;
+import data.DataHelper;
+import data.InvalidDataGenerator;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import page.LoginPage;
+import page.PageForm;
+import page.StartPage;
 import page.PurchasePage;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -28,35 +29,50 @@ public class TestPurchaseService {
     @BeforeEach
     public void openPage() {
         open("http://localhost:8080");
-        LoginPage.buyPage();
-        DataSeleKtor.getHeadingBuy().shouldBe(visible);
+        StartPage.buyPage();
+        PurchasePage.getDebet();
     }
 
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, одобрена банком.")
     void shouldPurchaseApproved() {
-        PurchasePage.buyPageFirst();
+        PageForm.fillingСardNumber(DataHelper.getFirstCardInfo());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getOk();
         var expected = "APPROVED";
-        var actual = DataBDHelper.stubTestPurshase();
+        var actual = DataBDHelper.getDebitPurchaseStatus();
         assertEquals(expected, actual);
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте №2, отклонена банком.")
     void shouldPurchaseRejected() {
-        PurchasePage.BuyPageSecond();
+        PageForm.fillingСardNumber(DataHelper.getSecondCardInfo());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getError();
         var expected = "DECLINED";
-        var actual = DataBDHelper.stubTestPurshase();
+        var actual = DataBDHelper.getDebitPurchaseStatus();
         assertEquals(expected, actual);
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой несуществующей карте, отклонена банком.")
     void shouldPurchaseRejectedFake() {
-        PurchasePage.FakerPage();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getError();
 
     }
@@ -64,28 +80,43 @@ public class TestPurchaseService {
     @Test
     @DisplayName("Покупка тура по дебетовой  карте, отправка пустой формы.")
     void shouldPurchaseZero() {
-        PurchasePage.InvalidPageZero();
+        PageForm.buttonPress();
         PurchasePage.getNote();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, не валидный номер")
     void shouldPurchaseInvalidNumber() {
-        PurchasePage.InvalidNumber();
+        PageForm.fillingСardNumber(InvalidDataGenerator.generateNumber());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteNumber();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, не валидный месяц")
     void shouldPurchaseInvalidMonth() {
-        PurchasePage.InvalidMonth();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(InvalidDataGenerator.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteManth();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, истек год")
     void shouldPurchaseInvalidYearExpired() {
-        PurchasePage.InvalidYearBefore();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearAfter());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteFormatYearBefore();
     }
 
@@ -93,7 +124,12 @@ public class TestPurchaseService {
     @Test
     @DisplayName("Покупка тура по дебетовой карте, неправильный  год")
     void shouldPurchaseInvalidYearIncorrected() {
-        PurchasePage.InvalidYearAfter();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearBefore());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteFormatYearAfter();
     }
 
@@ -101,21 +137,36 @@ public class TestPurchaseService {
     @Test
     @DisplayName("Покупка тура по дебетовой карте, ввод неверного формата месяц и год")
     void shouldPurchaseYearMonthIncorrected() {
-        PurchasePage.InvalidData();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(InvalidDataGenerator.generateMonthInCorrected());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearInCorrected());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteInvalidData();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректное имя ")
     void shouldPurchaseInvalidNaimIncorrected() {
-        PurchasePage.InvalidName();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(InvalidDataGenerator.generateName());
+        PageForm.fillingCVV(DataHelper.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteInvalidName();
     }
 
     @Test
     @DisplayName("Покупка тура по дебетовой карте, некорректный CVV ")
     void shouldPurchaseInvalidCVVIncorrected() {
-        PurchasePage.InvalidCVV();
+        PageForm.fillingСardNumber(DataHelper.generateNumber());
+        PageForm.fillingMonth(DataHelper.generateMonth());
+        PageForm.fillingYear(DataHelper.generateYearValidYear());
+        PageForm.fillingOwner(DataHelper.generateName());
+        PageForm.fillingCVV(InvalidDataGenerator.generateCVV());
+        PageForm.buttonPress();
         PurchasePage.getNoteInvalidCVV();
     }
 

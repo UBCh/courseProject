@@ -2,6 +2,7 @@
 package data;
 
 import lombok.SneakyThrows;
+
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
@@ -15,9 +16,8 @@ public class DataBDHelper {
 
 
     @SneakyThrows
-    public static String stubTest() {
-        var countSQL = "SELECT COUNT(*) FROM credit_request_entity";
-        var usersSQL = "SELECT * FROM credit_request_entity;";
+    public static String getCreditPurchaseStatus() {
+       var usersSQL = "SELECT * FROM credit_request_entity;";
         var runner = new QueryRunner();
 
         try (
@@ -32,8 +32,7 @@ public class DataBDHelper {
     }
 
     @SneakyThrows
-    public static String stubTestPurshase() {
-        var countSQL = "SELECT COUNT(*) FROM payment_entity";
+    public static String getDebitPurchaseStatus() {
         var usersSQL = "SELECT * FROM payment_entity;";
         var runner = new QueryRunner();
 
