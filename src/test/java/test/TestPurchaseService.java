@@ -113,7 +113,7 @@ public class TestPurchaseService {
     void shouldPurchaseInvalidYearExpired() {
         PageForm.fillingСardNumber(DataHelper.generateNumber());
         PageForm.fillingMonth(DataHelper.generateMonth());
-        PageForm.fillingYear(InvalidDataGenerator.generateYearAfter());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearBefore());
         PageForm.fillingOwner(DataHelper.generateName());
         PageForm.fillingCVV(DataHelper.generateCVV());
         PageForm.buttonPress();
@@ -126,7 +126,7 @@ public class TestPurchaseService {
     void shouldPurchaseInvalidYearIncorrected() {
         PageForm.fillingСardNumber(DataHelper.generateNumber());
         PageForm.fillingMonth(DataHelper.generateMonth());
-        PageForm.fillingYear(InvalidDataGenerator.generateYearBefore());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearAfter());
         PageForm.fillingOwner(DataHelper.generateName());
         PageForm.fillingCVV(DataHelper.generateCVV());
         PageForm.buttonPress();

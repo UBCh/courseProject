@@ -19,11 +19,11 @@ public class PurchasePage {
     }
 
     public static void getOk() {
-        PageSeleKtor.getoK().shouldBe(visible, Duration.ofMillis(20000));
+        PageSeleKtor.getoK().shouldBe(visible, Duration.ofMillis(30000));
     }
 
     public static void getError() {
-        PageSeleKtor.getError().shouldBe(visible,Duration.ofMillis(20000) );
+        PageSeleKtor.getError().shouldBe(visible,Duration.ofMillis(30000) );
     }
 
     public static void getNote() {
