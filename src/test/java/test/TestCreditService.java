@@ -116,7 +116,7 @@ public class TestCreditService {
     void shouldIpotekaInvalidYearExpired() {
         PageForm.fillingСardNumber(DataHelper.generateNumber());
         PageForm.fillingMonth(DataHelper.generateMonth());
-        PageForm.fillingYear(InvalidDataGenerator.generateYearAfter());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearBefore());
         PageForm.fillingOwner(DataHelper.generateName());
         PageForm.fillingCVV(DataHelper.generateCVV());
         PageForm.buttonPress();
@@ -128,7 +128,7 @@ public class TestCreditService {
     void shouldIpotekaInvalidYearInCorrect() {
         PageForm.fillingСardNumber(DataHelper.generateNumber());
         PageForm.fillingMonth(DataHelper.generateMonth());
-        PageForm.fillingYear(InvalidDataGenerator.generateYearBefore());
+        PageForm.fillingYear(InvalidDataGenerator.generateYearAfter());
         PageForm.fillingOwner(DataHelper.generateName());
         PageForm.fillingCVV(DataHelper.generateCVV());
         PageForm.buttonPress();
