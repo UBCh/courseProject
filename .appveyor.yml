@@ -13,8 +13,10 @@ install:
   - java -jar aqa-shop.jar &
 
 
+
 build_script:
   - chmod u+x gradlew
+  - sleep 15
   - ./gradlew test --info -Dselenide.headless=true
   - ./gradlew allureServe
   - gradlew npmInstall
