@@ -1,8 +1,7 @@
 
 package data;
 
-import lombok.SneakyThrows;
-
+import lombok.*;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
@@ -21,8 +20,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(
-                        "jdbc:mysql://185.119.57.9:3306/app", "app", "pass"
+                var conn = DriverManager.getConnection(Connection.url, Connection.user, Connection.password
                 );
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
@@ -37,15 +35,22 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(
-                        "jdbc:mysql://185.119.57.9:3306/app", "app", "pass"
-                );
+                var conn = DriverManager.getConnection(Connection.url, Connection.user, Connection.password);
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
             var status = first.getStatus();
             return status;
         }
     }
+    @Data
+    @NoArgsConstructor
 
+
+ static class Connection{
+
+       static String url = "jdbc:mysql://185.119.57.9:3306/app";
+       static String user ="app" ;
+       static String password= "pass";
+    }
 }
 
