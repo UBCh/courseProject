@@ -12,7 +12,7 @@ install:
 
   - java -jar aqa-shop.jar &
   - sleep 15
-
+  -
 
 build_script:
   - chmod u+x gradlew
