@@ -43,6 +43,8 @@ dependencies {
 }
 test {
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'sql.mysql', System.getProperty('sql.mysql')
+    systemProperty 'sql.postgresql', System.getProperty('sql.postgresql')
     useJUnitPlatform()
     testLogging { events "passed", "skipped", "failed" }
 }
