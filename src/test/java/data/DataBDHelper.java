@@ -20,7 +20,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(System.getProperty("sql.mysql")
+                var conn = DriverManager.getConnection(System.getProperty("sql.url")
                 );
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
@@ -35,7 +35,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(System.getProperty("sql.mysql"));
+                var conn = DriverManager.getConnection(System.getProperty("sql.url"));
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
             var status = first.getStatus();
