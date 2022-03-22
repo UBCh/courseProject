@@ -44,6 +44,7 @@ dependencies {
 test {
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     systemProperty 'sql.url', System.getProperty('sql.url')
+    systemProperty 'webdriver.chrome.driver', '/drivers/chromedriver'
     useJUnitPlatform()
     testLogging { events "passed", "skipped", "failed" }
 }
