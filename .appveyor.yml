@@ -18,7 +18,8 @@ install:
 build_script:
   - chmod u+x gradlew
   - ./gradlew test --info -Dselenide.headless=true
-  - ./gradlew test -Dsql.url=<jdbc url>
+  - ./gradlew test -Dsql.url=jdbc:mysql://185.119.57.9:3306/app
+  - ./gradlew test -Dsql.url=jdbc:jdbc:postgresql://185.119.57.9:5432/app
   - ./gradlew allureServe
   - gradlew npmInstall
 
