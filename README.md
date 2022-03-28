@@ -27,9 +27,9 @@
 
 ## 5. [ Report.md ](https://github.com/UBCh/courseProject/blob/master/Report.md)
 
-##6.  [Summary.md ](https://github.com/UBCh/courseProject/blob/master/Summary.md)
+## 6.  [Summary.md ](https://github.com/UBCh/courseProject/blob/master/Summary.md)
 
-##7.  [Plan.md](https://github.com/UBCh/courseProject/blob/master/Plan/Plan.md)
+## 7.  [Plan.md](https://github.com/UBCh/courseProject/blob/master/Plan/Plan.md)
 
 
 
