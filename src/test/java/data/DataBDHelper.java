@@ -21,7 +21,7 @@ public class DataBDHelper {
 
         try (
                 var conn = DriverManager.getConnection(System.getProperty("sql.url"),"app", "pass")
-                ;
+                              ;
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
             var status = first.getStatus();
@@ -36,6 +36,7 @@ public class DataBDHelper {
 
         try (
                 var conn = DriverManager.getConnection(System.getProperty("sql.url"),"app", "pass");
+
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
             var status = first.getStatus();
