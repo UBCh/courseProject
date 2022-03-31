@@ -23,7 +23,7 @@
 * выполнить  java -jar aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://185.119.57.9:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pass & в терминале
 * командой ./gradlew test -Dsql.url=jdbc:mysql://185.119.57.9:3306/app запустить тестирование
 * выполнить java -jar aqa-shop.jar -Dspring.datasource.url=jdbc:postgresql://185.119.57.9:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pass & в терминале
-* командой ./gradlew test -Dsql.url=jdbc:jdbc:postgresql://185.119.57.9:5432/app запустить тестирование
+* командой ./gradlew test -Dsql.url=jdbc:postgresql://185.119.57.9:5432/app запустить тестирование
 
 ## 5. [ Report.md ](https://github.com/UBCh/courseProject/blob/master/Report.md)
 
