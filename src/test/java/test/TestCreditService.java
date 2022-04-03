@@ -7,8 +7,8 @@ import data.InvalidDataGenerator;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import page.PageForm;
-import page.StartPage;
 import page.PurchasePage;
+import page.StartPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +27,8 @@ public class TestCreditService {
 
     @BeforeEach
     public void openPage() {
-        open("http://localhost:8080");
+        // open("http://localhost:8080");
+        open (System.getProperty("sql.http"));
         StartPage.buyLoan();
         PurchasePage.getKredit();
     }

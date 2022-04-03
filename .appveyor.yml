@@ -19,8 +19,8 @@ install:
 
 build_script:
   - chmod u+x gradlew
-  - ./gradlew test -Dsql.url=jdbc:mysql://185.119.57.9:3306/app -Dselenide.headless=true
-  - ./gradlew test -Dsql.url=jdbc:postgresql://185.119.57.9:5432/app -Dselenide.headless=true
+  - ./gradlew test -Dsql.url=jdbc:mysql://185.119.57.9:3306/app  -Dsql.http=http://localhost:8080 -Dselenide.headless=true
+  - ./gradlew test -Dsql.url=jdbc:postgresql://185.119.57.9:5432/app -Dsql.http=http://localhost:9090-Dselenide.headless=true
 
 
 
