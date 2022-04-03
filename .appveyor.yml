@@ -10,7 +10,7 @@ build: off
 
 install:
 
-  - java  -Dspring.datasource.url=jdbc:postgresql://185.119.57.9:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pas --server.port=9090 -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:postgresql://185.119.57.9:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pas -Dserver.port=9090 -jar aqa-shop.jar &
   - sleep 15
   - java  -Dspring.datasource.url=jdbc:mysql://185.119.57.9:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pas -jar aqa-shop.jar &
   - sleep 15
