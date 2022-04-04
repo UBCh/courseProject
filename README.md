@@ -26,12 +26,10 @@
 * открыть проект в IntelliJ IDEA
 * выполнить java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app
   -Dspring.datasource.password=pass -jar aqa-shop.jar & в терминале
-* командой ./gradlew test -Dsql.url=jdbc:mysql://localhost:3306/app -Dsql.http=http://localhost:8080 запустить
-  тестирование
+* запустить тестирование командой ./gradlew test -Dsql.url=jdbc:mysql://localhost:3306/app -Dsql.http=http://localhost:8080 
 * выполнить java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=app
-  -Dspring.datasource.password=pass -Dserver.port=9090 -jar aqa-shop.jar & в терминале
-* командой ./gradlew test -Dsql.url=jdbc:postgresql://localhost:5432/app -Dsql.http=http://localhost:9090 запустить
-  тестирование
+  -Dspring.datasource.password=pass -Dserver.port=9090 -jar aqa-shop.jar &  в терминале
+* запустить тестирование командой ./gradlew test -Dsql.url=jdbc:postgresql://localhost:5432/app -Dsql.http=http://localhost:9090   
 
 ## 5. [ Report.md ](https://github.com/UBCh/courseProject/blob/master/Report.md)
 
