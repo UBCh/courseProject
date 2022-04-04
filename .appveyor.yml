@@ -10,9 +10,9 @@ build: off
 
 install:
 
-  - java  -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pas -Dserver.port=9090 -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -Dserver.port=9090 -jar aqa-shop.jar &
   - sleep 15
-  - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pas -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar aqa-shop.jar &
   - sleep 15
 
 
