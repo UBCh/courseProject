@@ -16,12 +16,12 @@ public class DataBDHelper {
 
     @SneakyThrows
     public static String getCreditPurchaseStatus() {
-       var usersSQL = "SELECT * FROM credit_request_entity;";
+        var usersSQL = "SELECT * FROM credit_request_entity;";
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(System.getProperty("sql.url"),"app", "pass")
-                              ;
+                var conn = DriverManager.getConnection(System.getProperty("sql.url"), "app", "pass")
+                ;
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
             var status = first.getStatus();
@@ -35,7 +35,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(System.getProperty("sql.url"),"app", "pass");
+                var conn = DriverManager.getConnection(System.getProperty("sql.url"), "app", "pass");
 
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
@@ -43,7 +43,6 @@ public class DataBDHelper {
             return status;
         }
     }
-
 
 
 }

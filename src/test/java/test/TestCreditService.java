@@ -28,7 +28,7 @@ public class TestCreditService {
     @BeforeEach
     public void openPage() {
         // open("http://localhost:8080");
-        open (System.getProperty("sql.http"));
+        open(System.getProperty("sql.http"));
         StartPage.buyLoan();
         PurchasePage.getKredit();
     }
@@ -44,7 +44,7 @@ public class TestCreditService {
         PageForm.fillingCVV(DataHelper.generateCVV());
         PageForm.buttonPress();
         PurchasePage.getOk();
-        var expected ="APPROVED" ;
+        var expected = "APPROVED";
         var actual = DataBDHelper.getCreditPurchaseStatus();
         assertEquals(expected, actual);
     }
