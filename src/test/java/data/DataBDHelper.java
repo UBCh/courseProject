@@ -20,7 +20,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(System.getProperty("sql.url"),"app", "pass")
+                var conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/app","app", "pass")
                               ;
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
@@ -35,7 +35,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection(System.getProperty("sql.url"),"app", "pass");
+                var conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/app","app", "pass");
 
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));

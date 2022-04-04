@@ -28,8 +28,7 @@ public class TestPurchaseService {
 
     @BeforeEach
     public void openPage() {
-       // open("http://localhost:8080");
-        open (System.getProperty("sql.http"));
+        open("http://localhost:8080");
         StartPage.buyPage();
         PurchasePage.getDebet();
     }
