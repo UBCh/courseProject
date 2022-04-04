@@ -27,8 +27,7 @@ public class TestCreditService {
 
     @BeforeEach
     public void openPage() {
-        // open("http://localhost:8080");
-        open (System.getProperty("sql.http"));
+        open("http://localhost:8080");
         StartPage.buyLoan();
         PurchasePage.getKredit();
     }
