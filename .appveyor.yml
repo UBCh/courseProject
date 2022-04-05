@@ -5,7 +5,8 @@ stack: jdk 11  # версия JDK
 branches:
   only:
     - master
-
+    - mySQL
+    - postgres
 build: off
 
 install:
