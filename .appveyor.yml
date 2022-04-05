@@ -9,13 +9,12 @@ branches:
     - postgres
 build: off
 
-install:
+services:
+  - mysql
 
+install:
   - java  -jar aqa-shop.jar &
   - sleep 15
-
-
-
 
 build_script:
   - chmod u+x gradlew
@@ -23,6 +22,6 @@ build_script:
   - ./gradlew allureServe
 
 
-services:
-  - mysql
+#services:
+#  - mysql
 
