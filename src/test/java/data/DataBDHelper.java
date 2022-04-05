@@ -20,7 +20,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app","app", "pass")
+                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app","root", "Password12!")
                               ;
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
@@ -35,7 +35,7 @@ public class DataBDHelper {
         var runner = new QueryRunner();
 
         try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app","app", "pass");
+                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app","root", "Password12!");
 
         ) {
             var first = runner.query(conn, usersSQL, new BeanHandler<>(DataModel.class));
