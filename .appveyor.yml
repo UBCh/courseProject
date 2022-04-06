@@ -18,7 +18,7 @@ install:
   - sleep 15
   - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
   - sleep 15
-  - apt install nodejs npm node $env:nodejs_version
+  - sudo apt install nodejs npm node $env:nodejs_version
   - npm install ./gate-simulator
 
 
