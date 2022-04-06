@@ -15,8 +15,7 @@ install:
   - sleep 15
   - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
   - sleep 15
-  - npm start
-
+  - npm install
 
 build_script:
   - chmod u+x gradlew
@@ -30,3 +29,6 @@ services:
   - mysql
   - postgresql
    
+test:
+  categories:
+    - Common    # A category common for all jobs
