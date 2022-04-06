@@ -18,9 +18,9 @@ install:
 
 build_script:
   - chmod u+x gradlew
-  - ./gradlew npmInstall
   - ./gradlew test -Dselenide.headless=true
   - ./gradlew allureServe
+  - ./gradlew npmInstall
 
 
 #services:
