@@ -15,7 +15,7 @@ install:
   - sleep 15
   - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
   - sleep 15
-  -C/--directory:\gate-simulator\package.json - npm install
+  - -C/--directory:\gate-simulator\package.json - npm install
 
 
 build_script:
