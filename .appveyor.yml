@@ -11,13 +11,12 @@ branches:
 build: off
 
 install:
-  - npm start
   - java  Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=postgres -Dspring.datasource.password=Password12! -Dserver.port=9090 -jar aqa-shop.jar &
   - sleep 15
   - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
   - sleep 15
+  - npm start
 
-  - gradlew npmInstall
 
 build_script:
   - chmod u+x gradlew
