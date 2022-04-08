@@ -21,7 +21,7 @@ install:
   #- sudo apt install nodejs npm node $env:nodejs_version
   - sudo apt update -y
   - sudo apt install nodejs npm -y
-  - npm install npm@latest -g
+  - nodejs install nodejs@latest -g
   - npm install ./gate-simulator
 
 
