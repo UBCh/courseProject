@@ -22,7 +22,7 @@ install:
   - cd gate-simulator
   - npm install nodejs@latest -g
   - npm install
-  - npm start
+  - npm start &
   - cd
 
 
