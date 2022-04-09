@@ -43,8 +43,9 @@ dependencies {
 test {
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     systemProperty 'sql.url', System.getProperty('sql.url')
+    systemProperty 'sql.user', System.getProperty('sql.user')
+    systemProperty 'sql.pass', System.getProperty('sql.pass')
     systemProperty 'sql.http', System.getProperty('sql.http')
     useJUnitPlatform()
-    //testLogging { events "passed", "skipped", "failed" }
     test { testLogging { exceptionFormat = 'full' } }
 }
