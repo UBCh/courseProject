@@ -45,6 +45,6 @@ test:
 
 artifacts:
   - path: test1.zip
-  name: MyMySQL
+    name: MyMySQL
   - path: test2.zip
-  name: MyPostg
+    name: MyPostg
