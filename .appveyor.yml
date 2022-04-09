@@ -44,7 +44,7 @@ test:
     - Common    # A category common for all jobs
 
 artifacts:
-    - path: test1.zip
-    name: MyMySQL
-    - path: test2.zip
-    name: MyPostg
+  - path: test1.zip
+  name: MyMySQL
+  - path: test2.zip
+  name: MyPostg
