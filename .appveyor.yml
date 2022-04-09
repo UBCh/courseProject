@@ -32,7 +32,7 @@ build_script:
   - sleep 15
   - chmod u+x gradlew
   - ./gradlew test -Dsql.url=jdbc:mysql://localhost:3306/mysql  -Dsql.http=http://localhost:8080 -Dsql.user=root   -Dsql.pass=Password12!  -Dselenide.headless=true
-  - ./gradlew test -Dsql.url=jdbc:postgresql://localhost:5432/postgres -Dsql.http=http://localhost:9090  -Dsql.user=postgres  -Dsql.pass=Password12!-Dselenide.headless=true
+  - ./gradlew test -Dsql.url=jdbc:postgresql://localhost:5432/postgres -Dsql.http=http://localhost:9090  -Dsql.user=postgres  -Dsql.pass=Password12! -Dselenide.headless=true
   - ./gradlew allureServe
 
 
