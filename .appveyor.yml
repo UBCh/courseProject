@@ -25,9 +25,9 @@ install:
 
 
 build_script:
-  - java  -Dspring.datasource.url=jdbc:postgresql://localhost:5432/postgres -Dspring.datasource.username=postgres -Dspring.datasource.password=Password12! -Dserver.port=9090 -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:postgresql://localhost:5432/postgres -Dspring.datasource.username=postgres -Dspring.datasource.password=Password12! -Dserver.port=9090 -jar aqa-shop.jar > test.zip &
   - sleep 15
-  - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/mysql -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/mysql -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar > test.zip &
   - sleep 15
   - chmod u+x gradlew
   - ./gradlew test -Dsql.url=jdbc:mysql://localhost:3306/mysql  -Dsql.http=http://localhost:8080 -Dselenide.headless=true
@@ -42,3 +42,9 @@ services:
 test:
   categories:
     - Common    # A category common for all jobs
+
+artifacts:
+    - path: test.zip
+    name: MyApp
+    - path: test.zip
+    name: MyApp
