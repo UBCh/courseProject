@@ -28,7 +28,7 @@ public class TestPurchaseService {
 
     @BeforeEach
     public void openPage() {
-        open (System.getProperty("sql.http"));
+        open(System.getProperty("sql.http"));
         StartPage.buyPage();
         PurchasePage.getDebet();
     }
