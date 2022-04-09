@@ -25,13 +25,13 @@ install:
 
 
 build_script:
-  - java  -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=postgres -Dspring.datasource.password=Password12! -Dserver.port=9090 -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:postgresql://localhost:5432 -Dspring.datasource.username=postgres -Dspring.datasource.password=Password12! -Dserver.port=9090 -jar aqa-shop.jar &
   - sleep 15
-  - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
+  - java  -Dspring.datasource.url=jdbc:mysql://localhost:3306 -Dspring.datasource.username=root -Dspring.datasource.password=Password12! -jar aqa-shop.jar &
   - sleep 15
   - chmod u+x gradlew
-  - ./gradlew test -Dsql.url=jdbc:mysql://localhost:3306/app  -Dsql.http=http://localhost:8080 -Dselenide.headless=true
-  - ./gradlew test -Dsql.url=jdbc:postgresql://localhost:5432/app -Dsql.http=http://localhost:9090 -Dselenide.headless=true
+  - ./gradlew test -Dsql.url=jdbc:mysql://localhost:3306  -Dsql.http=http://localhost:8080 -Dselenide.headless=true
+  - ./gradlew test -Dsql.url=jdbc:postgresql://localhost:5432 -Dsql.http=http://localhost:9090 -Dselenide.headless=true
   - ./gradlew allureServe
 
 
